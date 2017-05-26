@@ -1,0 +1,452 @@
+select distinct s.sname as Salesperson_Name, <Customer, orders.cno as Customer_No, orders.totqty,>, FROM s, orders WHERE s.sno = orders.sno
+
+Results: 
+Example1.xml
+Example1.xsd
+
+---
+SELECT s.sname AS Sales_Associate, s.sno FROM s WHERE s.city = 'San Diego'
+
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ThisQuery>
+<A_Record>
+<SALES_ASSOCIATE column="sname" table="s">Sims</SALES_ASSOCIATE>
+<SNO column="sno" table="s">S4        </SNO>
+</A_Record>
+</ThisQuery>
+
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="" elementFormDefault="qualified">
+  <xsd:element name="ThisQuery">
+    <xsd:complexType mixed="true">
+      <xsd:sequence>
+        <xsd:element name="A_Record" minOccurs="0">
+          <xsd:complexType mixed="true">
+            <xsd:sequence>
+              <xsd:element name="SALES_ASSOCIATE" minOccurs="0">
+                <xsd:complexType>
+                  <xsd:simpleContent>
+                    <xsd:extension base="xsd:normalizedString">
+                      <xsd:attribute name="column" type="xsd:normalizedString" use="required"/>
+                      <xsd:attribute name="table" type="xsd:normalizedString" use="required"/>
+                    </xsd:extension>
+                  </xsd:simpleContent>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="SNO" minOccurs="0">
+                <xsd:complexType>
+                  <xsd:simpleContent>
+                    <xsd:extension base="xsd:normalizedString">
+                      <xsd:attribute name="column" type="xsd:normalizedString" use="required"/>
+                      <xsd:attribute name="table" type="xsd:normalizedString" use="required"/>
+                    </xsd:extension>
+                  </xsd:simpleContent>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>
+---
+
+SELECT <Sales_Person, s.sno AS salesID, s.sname,>, s.city from s
+
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ThisQuery>
+<A_Record>
+<Sales_Person>
+<SALESID column="sno" table="s">S1        </SALESID>
+<SNAME column="sname" table="s">Job</SNAME>
+</Sales_Person>
+<SNAME column="city" table="s">Job</SNAME>
+</A_Record>
+<A_Record>
+<Sales_Person>
+<SALESID column="sno" table="s">S2        </SALESID>
+<SNAME column="sname" table="s">Baker</SNAME>
+</Sales_Person>
+<SNAME column="city" table="s">Baker</SNAME>
+</A_Record>
+<A_Record>
+<Sales_Person>
+<SALESID column="sno" table="s">S3        </SALESID>
+<SNAME column="sname" table="s">Kirby</SNAME>
+</Sales_Person>
+<SNAME column="city" table="s">Kirby</SNAME>
+</A_Record>
+<A_Record>
+<Sales_Person>
+<SALESID column="sno" table="s">S4        </SALESID>
+<SNAME column="sname" table="s">Sims</SNAME>
+</Sales_Person>
+<SNAME column="city" table="s">Sims</SNAME>
+</A_Record>
+<A_Record>
+<Sales_Person>
+<SALESID column="sno" table="s">S5        </SALESID>
+<SNAME column="sname" table="s">Jones</SNAME>
+</Sales_Person>
+<SNAME column="city" table="s">Jones</SNAME>
+</A_Record>
+</ThisQuery>
+
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="" elementFormDefault="qualified">
+  <xsd:element name="ThisQuery">
+    <xsd:complexType mixed="true">
+      <xsd:sequence>
+        <xsd:element name="A_Record" maxOccurs="unbounded">
+          <xsd:complexType mixed="true">
+            <xsd:sequence>
+              <xsd:element name="Sales_Person" minOccurs="0">
+                <xsd:complexType mixed="true">
+                  <xsd:sequence>
+                    <xsd:element name="SALESID" minOccurs="0">
+                      <xsd:complexType>
+                        <xsd:simpleContent>
+                          <xsd:extension base="xsd:normalizedString">
+                            <xsd:attribute name="column" type="xsd:normalizedString" use="required"/>
+                            <xsd:attribute name="table" type="xsd:normalizedString" use="required"/>
+                          </xsd:extension>
+                        </xsd:simpleContent>
+                      </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="SNAME" minOccurs="0">
+                      <xsd:complexType>
+                        <xsd:simpleContent>
+                          <xsd:extension base="xsd:normalizedString">
+                            <xsd:attribute name="column" type="xsd:normalizedString" use="required"/>
+                            <xsd:attribute name="table" type="xsd:normalizedString" use="required"/>
+                          </xsd:extension>
+                        </xsd:simpleContent>
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="SNAME" minOccurs="0">
+                <xsd:complexType>
+                  <xsd:simpleContent>
+                    <xsd:extension base="xsd:normalizedString">
+                      <xsd:attribute name="column" type="xsd:normalizedString" use="required"/>
+                      <xsd:attribute name="table" type="xsd:normalizedString" use="required"/>
+                    </xsd:extension>
+                  </xsd:simpleContent>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>
+---
+ select distinct product.pname, <+quantity_sold, orders.cno as Customer_No, orders.totqty,>, from product, orders where product.pno = orders.pno
+
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ThisQuery>
+<A_Record>
+<PNAME column="pname" table="product">modern</PNAME>
+<quantity_sold>
+<CUSTOMER_NO column="cno" table="orders">C1        </CUSTOMER_NO>
+<TOTQTY column="totqty" table="orders">2</TOTQTY>
+</quantity_sold>
+<quantity_sold>
+<CUSTOMER_NO column="cno" table="orders">C5        </CUSTOMER_NO>
+<TOTQTY column="totqty" table="orders">4</TOTQTY>
+</quantity_sold>
+</A_Record>
+<A_Record>
+<PNAME column="pname" table="product">disk units</PNAME>
+<quantity_sold>
+<CUSTOMER_NO column="cno" table="orders">C3        </CUSTOMER_NO>
+<TOTQTY column="totqty" table="orders">3</TOTQTY>
+</quantity_sold>
+<quantity_sold>
+<CUSTOMER_NO column="cno" table="orders">C2        </CUSTOMER_NO>
+<TOTQTY column="totqty" table="orders">10</TOTQTY>
+</quantity_sold>
+<quantity_sold>
+<CUSTOMER_NO column="cno" table="orders">C4        </CUSTOMER_NO>
+<TOTQTY column="totqty" table="orders">5</TOTQTY>
+</quantity_sold>
+</A_Record>
+<A_Record>
+<PNAME column="pname" table="product">cpu cards</PNAME>
+<quantity_sold>
+<CUSTOMER_NO column="cno" table="orders">C4        </CUSTOMER_NO>
+<TOTQTY column="totqty" table="orders">5</TOTQTY>
+</quantity_sold>
+<quantity_sold>
+<CUSTOMER_NO column="cno" table="orders">C2        </CUSTOMER_NO>
+<TOTQTY column="totqty" table="orders">10</TOTQTY>
+</quantity_sold>
+</A_Record>
+<A_Record>
+<PNAME column="pname" table="product">monitor</PNAME>
+<quantity_sold>
+<CUSTOMER_NO column="cno" table="orders">C4        </CUSTOMER_NO>
+<TOTQTY column="totqty" table="orders">5</TOTQTY>
+</quantity_sold>
+<quantity_sold>
+<CUSTOMER_NO column="cno" table="orders">C2        </CUSTOMER_NO>
+<TOTQTY column="totqty" table="orders">10</TOTQTY>
+</quantity_sold>
+</A_Record>
+<A_Record>
+<PNAME column="pname" table="product">printers</PNAME>
+<quantity_sold>
+<CUSTOMER_NO column="cno" table="orders">C4        </CUSTOMER_NO>
+<TOTQTY column="totqty" table="orders">5</TOTQTY>
+</quantity_sold>
+<quantity_sold>
+<CUSTOMER_NO column="cno" table="orders">C3        </CUSTOMER_NO>
+<TOTQTY column="totqty" table="orders">3</TOTQTY>
+</quantity_sold>
+<quantity_sold>
+<CUSTOMER_NO column="cno" table="orders">C1        </CUSTOMER_NO>
+<TOTQTY column="totqty" table="orders">1</TOTQTY>
+</quantity_sold>
+</A_Record>
+<A_Record>
+<PNAME column="pname" table="product">tape drive</PNAME>
+<quantity_sold>
+<CUSTOMER_NO column="cno" table="orders">C4        </CUSTOMER_NO>
+<TOTQTY column="totqty" table="orders">2</TOTQTY>
+</quantity_sold>
+<quantity_sold>
+<CUSTOMER_NO column="cno" table="orders">C2        </CUSTOMER_NO>
+<TOTQTY column="totqty" table="orders">2</TOTQTY>
+</quantity_sold>
+</A_Record>
+</ThisQuery>
+
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="" elementFormDefault="qualified">
+  <xsd:element name="ThisQuery">
+    <xsd:complexType mixed="true">
+      <xsd:sequence>
+        <xsd:element name="A_Record" maxOccurs="unbounded">
+          <xsd:complexType mixed="true">
+            <xsd:sequence>
+              <xsd:element name="PNAME" minOccurs="0">
+                <xsd:complexType>
+                  <xsd:simpleContent>
+                    <xsd:extension base="xsd:normalizedString">
+                      <xsd:attribute name="column" type="xsd:normalizedString" use="required"/>
+                      <xsd:attribute name="table" type="xsd:normalizedString" use="required"/>
+                    </xsd:extension>
+                  </xsd:simpleContent>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="quantity_sold" maxOccurs="unbounded">
+                <xsd:complexType mixed="true">
+                  <xsd:sequence>
+                    <xsd:element name="CUSTOMER_NO" minOccurs="0">
+                      <xsd:complexType>
+                        <xsd:simpleContent>
+                          <xsd:extension base="xsd:normalizedString">
+                            <xsd:attribute name="column" type="xsd:normalizedString" use="required"/>
+                            <xsd:attribute name="table" type="xsd:normalizedString" use="required"/>
+                          </xsd:extension>
+                        </xsd:simpleContent>
+                      </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="TOTQTY" minOccurs="0">
+                      <xsd:complexType>
+                        <xsd:simpleContent>
+                          <xsd:extension base="xsd:int">
+                            <xsd:attribute name="column" type="xsd:normalizedString" use="required"/>
+                            <xsd:attribute name="table" type="xsd:normalizedString" use="required"/>
+                          </xsd:extension>
+                        </xsd:simpleContent>
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>
+
+
+
+---
+
+(SQLITE)
+select s.sno, s.city from s;
+
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ThisQuery>
+<A_Record>
+<SNO column="sno" table="s">S1</SNO>
+<City column="city" table="s">Dallas</City>
+</A_Record>
+<A_Record>
+<SNO column="sno" table="s">S2</SNO>
+<City column="city" table="s">Chicago</City>
+</A_Record>
+<A_Record>
+<SNO column="sno" table="s">S3</SNO>
+<City column="city" table="s">Phoenix</City>
+</A_Record>
+<A_Record>
+<SNO column="sno" table="s">S4</SNO>
+<City column="city" table="s">San Diego</City>
+</A_Record>
+<A_Record>
+<SNO column="sno" table="s">S5</SNO>
+<City column="city" table="s">New York</City>
+</A_Record>
+</ThisQuery>
+
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="" elementFormDefault="qualified">
+  <xsd:element name="ThisQuery">
+    <xsd:complexType mixed="true">
+      <xsd:sequence>
+        <xsd:element name="A_Record" maxOccurs="unbounded">
+          <xsd:complexType mixed="true">
+            <xsd:sequence>
+              <xsd:element name="SNO" minOccurs="0">
+                <xsd:complexType>
+                  <xsd:simpleContent>
+                    <xsd:extension base="xsd:normalizedString">
+                      <xsd:attribute name="column" type="xsd:normalizedString" use="required"/>
+                      <xsd:attribute name="table" type="xsd:normalizedString" use="required"/>
+                    </xsd:extension>
+                  </xsd:simpleContent>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="City" minOccurs="0">
+                <xsd:complexType>
+                  <xsd:simpleContent>
+                    <xsd:extension base="xsd:normalizedString">
+                      <xsd:attribute name="column" type="xsd:normalizedString" use="required"/>
+                      <xsd:attribute name="table" type="xsd:normalizedString" use="required"/>
+                    </xsd:extension>
+                  </xsd:simpleContent>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>
+
+---
+(SQLITE)
+SELECT DISTINCT s.sname as Salesperson_Name, <+Customer, orders.cno as Customer_No, orders.totqty,> FROM s,orders WHERE s.sno= orders.sno
+
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ThisQuery>
+<A_Record>
+<SALESPERSON_NAME column="sname" table="s">Jones</SALESPERSON_NAME>
+<Customer>
+<CUSTOMER_NO column="cno" table="orders">C4</CUSTOMER_NO>
+<totqty column="totqty" table="orders">5</totqty>
+</Customer>
+<Customer>
+<CUSTOMER_NO column="cno" table="orders">C4</CUSTOMER_NO>
+<totqty column="totqty" table="orders">2</totqty>
+</Customer>
+</A_Record>
+<A_Record>
+<SALESPERSON_NAME column="sname" table="s">Smith</SALESPERSON_NAME>
+<Customer>
+<CUSTOMER_NO column="cno" table="orders">C1</CUSTOMER_NO>
+<totqty column="totqty" table="orders">2</totqty>
+</Customer>
+<Customer>
+<CUSTOMER_NO column="cno" table="orders">C4</CUSTOMER_NO>
+<totqty column="totqty" table="orders">5</totqty>
+</Customer>
+</A_Record>
+<A_Record>
+<SALESPERSON_NAME column="sname" table="s">Martin</SALESPERSON_NAME>
+<Customer>
+<CUSTOMER_NO column="cno" table="orders">C2</CUSTOMER_NO>
+<totqty column="totqty" table="orders">10</totqty>
+</Customer>
+<Customer>
+<CUSTOMER_NO column="cno" table="orders">C2</CUSTOMER_NO>
+<totqty column="totqty" table="orders">2</totqty>
+</Customer>
+<Customer>
+<CUSTOMER_NO column="cno" table="orders">C3</CUSTOMER_NO>
+<totqty column="totqty" table="orders">3</totqty>
+</Customer>
+</A_Record>
+<A_Record>
+<SALESPERSON_NAME column="sname" table="s">Adams</SALESPERSON_NAME>
+<Customer>
+<CUSTOMER_NO column="cno" table="orders">C5</CUSTOMER_NO>
+<totqty column="totqty" table="orders">4</totqty>
+</Customer>
+<Customer>
+<CUSTOMER_NO column="cno" table="orders">C5</CUSTOMER_NO>
+<totqty column="totqty" table="orders">2</totqty>
+</Customer>
+<Customer>
+<CUSTOMER_NO column="cno" table="orders">C1</CUSTOMER_NO>
+<totqty column="totqty" table="orders">1</totqty>
+</Customer>
+</A_Record>
+</ThisQuery>
+
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="" elementFormDefault="qualified">
+  <xsd:element name="ThisQuery">
+    <xsd:complexType mixed="true">
+      <xsd:sequence>
+        <xsd:element name="A_Record" maxOccurs="unbounded">
+          <xsd:complexType mixed="true">
+            <xsd:sequence>
+              <xsd:element name="SALESPERSON_NAME" minOccurs="0">
+                <xsd:complexType>
+                  <xsd:simpleContent>
+                    <xsd:extension base="xsd:normalizedString">
+                      <xsd:attribute name="column" type="xsd:normalizedString" use="required"/>
+                      <xsd:attribute name="table" type="xsd:normalizedString" use="required"/>
+                    </xsd:extension>
+                  </xsd:simpleContent>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="Customer" maxOccurs="unbounded">
+                <xsd:complexType mixed="true">
+                  <xsd:sequence>
+                    <xsd:element name="CUSTOMER_NO" minOccurs="0">
+                      <xsd:complexType>
+                        <xsd:simpleContent>
+                          <xsd:extension base="xsd:normalizedString">
+                            <xsd:attribute name="column" type="xsd:normalizedString" use="required"/>
+                            <xsd:attribute name="table" type="xsd:normalizedString" use="required"/>
+                          </xsd:extension>
+                        </xsd:simpleContent>
+                      </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="totqty" minOccurs="0">
+                      <xsd:complexType>
+                        <xsd:simpleContent>
+                          <xsd:extension base="xsd:int">
+                            <xsd:attribute name="column" type="xsd:normalizedString" use="required"/>
+                            <xsd:attribute name="table" type="xsd:normalizedString" use="required"/>
+                          </xsd:extension>
+                        </xsd:simpleContent>
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

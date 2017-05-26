@@ -1,0 +1,18 @@
+DEVELOPER INFORMATION
+=====================
+
+There is not much to talk about, but as the program uses ANTLR it is widely advised that you learn how to use ANTLRv4 before attempting to modify the parser.
+
+The files: MySQLLexer.g4, and MySQLParser.g4 are the Token and Grammar files for the ANTLR parser. 
+
+The Java command: java -jar antlr-4.5-3-complete.jar /path/to/antlr/file/MySQLLexer.g4 or MySQLParser.g4 will regenerate the parser. If changes are made to the Token or Grammar files, then the changes will not take effect until the parser has been regenerated.
+
+It is advisable to run this command in the source directory (./com/abassi/Team4A/) so that the source files are generated in the correct place.
+
+An ENUM is provided for adding more drivers. In order to add a driver, information must be added to the switch statements in the following places:
+
+getTables()
+DescribeTable()
+main()
+
+The driver must support JDBC. Obtaining the table and describing tables are usually unique between individual databases, so new code will have to be added on a per-driver basis.
